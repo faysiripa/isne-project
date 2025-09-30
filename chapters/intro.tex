@@ -2,10 +2,13 @@
 
 \section{\ifenglish Project rationale\else ที่มาของโครงงาน\fi}
 
+LoRa (Long Range) is a low-power wireless communication technology widely used in Internet of Things (IoT) applications such as environmental monitoring, infrastructure systems, and smart home appliances. Despite its advantages, LoRa lacks strong built-in security mechanisms. This leaves signals exposed to attacks such as eavesdropping, reply attacks , and message injections [1], [2]. Traditional encryption methods can mitigate these risks but are often too resource-intensive for low-power devices like the ESP32.
+
 \section{\ifenglish Objectives\else วัตถุประสงค์ของโครงงาน\fi}
-\begin{enumerate}
-    \item
-\end{enumerate}
+
+To address this challenge, this project avoids static, pre-stored keys and instead generates encryption keys that are dynamic and constantly changing. RSSI (Received Signal Strength Indicator) values are used as the basis for key generation. Since RSSI values are unique between two devices and vary with environmental conditions, the resulting keys are never fixed. Unlike a static key, RSSI-based keys change over time, making them more difficult for an attacker to predict or reuse.
+
+This project presents a lightweight secure communication framework for IoT systems using LoRa and MicroPython, focusing on encryption and dynamic key management. Session keys are updated using RSSI values. Both devices share a predefined keyword and an RSSI interval for adjustment. The communication process begins with the sender transmitting a verification message while the receiver measures the RSSI and iteratively adjusts its interpretation within the agreed interval until the message is correctly decrypted and the keyword matches. This ensures that both devices converge on the same session key despite natural fluctuations in signal strength. Furthermore, by using RSSI values with two-decimal precision and combining measurements across multiple LoRa channels, the system significantly increases resistance to interception and eavesdropping. Overall, the framework provides a practical balance between security and performance for securing IoT communication [3],[4].
 
 \section{\ifenglish Project scope\else ขอบเขตของโครงงาน\fi}
 
