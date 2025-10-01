@@ -1,4 +1,4 @@
-\documentclass[semifinal,survey,isne,english]{cpecmu}
+\documentclass[semifinal,survey,isne]{cpecmu}
 
 %% This is a sample document demonstrating how to use the CPECMU
 %% project template. If you are having trouble, see "cpecmu.pdf" for
@@ -82,6 +82,9 @@
 \ifproject
 \include{chapters/conclusion}
 \fi
+
+% Example citation to avoid "no \citation commands" error
+\nocite{*}
 
 \bibliography{sampleReport}
 

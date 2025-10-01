@@ -4,4 +4,31 @@
 \ifenglish System Evaluation\else การประเมินระบบ\fi
 \fi}
 
-% ในบทนี้จะทดสอบเกี่ยวกับการทำงานในฟังก์ชันหลักๆ
+\section{Evaluation Metrics}
+If implemented, the proposed framework would be evaluated using the following criteria:
+
+\subsection{Performance}
+ the time required for key generation, encryption, and decryption on ESP32 devices.
+
+\subsection{Resource Usage}
+ memory and CPU consumption, ensuring the design remains lightweight.
+
+\subsection{Security Assessment}
+ resistance against common IoT attacks, including replay and man-in-the-middle (MITM) attacks.
+
+ \section{Evaluation Method}
+
+\subsection{Correctness Testing}
+Repeatedly transmit verification messages and record the percentage of times the receiver derives the correct key and matches the predefined keyword.
+
+\subsection{Performance Measurement}
+Measure execution time of key generation and encryption/decryption functions using built-in timers on ESP32.
+
+\subsection{Resource Usage}
+Monitor program memory footprint and RAM usage to ensure they remain under the target limits (~10 KB flash, ~300 bytes RAM).
+
+\subsection{ Security Testing}
+Simulate potential attack scenarios such as replaying old packets or attempting to intercept communication, to evaluate whether the dynamic key mechanism prevents message reuse or prediction.
+
+ \section{Evaluation Method}
+ The evaluation is expected to show that the RSSI-based key generation approach achieves high correctness in key agreement, maintains lightweight resource usage suitable for ESP32 devices, and provides improved resilience against interception compared to static key methods.
