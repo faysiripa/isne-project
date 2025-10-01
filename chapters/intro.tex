@@ -11,18 +11,87 @@ To address this challenge, this project avoids static, pre-stored keys and inste
 This project presents a lightweight secure communication framework for IoT systems using LoRa and MicroPython, focusing on encryption and dynamic key management. Session keys are updated using RSSI values. Both devices share a predefined keyword and an RSSI interval for adjustment. The communication process begins with the sender transmitting a verification message while the receiver measures the RSSI and iteratively adjusts its interpretation within the agreed interval until the message is correctly decrypted and the keyword matches. This ensures that both devices converge on the same session key despite natural fluctuations in signal strength. Furthermore, by using RSSI values with two-decimal precision and combining measurements across multiple LoRa channels, the system significantly increases resistance to interception and eavesdropping. Overall, the framework provides a practical balance between security and performance for securing IoT communication [3],[4].
 
 \section{\ifenglish Project scope\else ขอบเขตของโครงงาน\fi}
-
-\subsection{\ifenglish Hardware scope\else ขอบเขตด้านฮาร์ดแวร์\fi}
-
-\subsection{\ifenglish Software scope\else ขอบเขตด้านซอฟต์แวร์\fi}
+The scope of this project focuses on designing and developing a secure communication framework based on LoRa technology using MicroPython for low-power IoT devices such as the ESP32. The project emphasizes generating dynamic encryption keys from signal strength values (RSSI) to enhance communication security, as well as conducting communication experiments between at least two devices.
 
 \section{\ifenglish Expected outcomes\else ประโยชน์ที่ได้รับ\fi}
+
+\subsection{\ifenglish Secure IoT Communication Prototype\else ขอบเขตด้านฮาร์ดแวร์\fi}
+
+A working prototype of a lightweight secure communication framework implemented on ESP32 boards with LoRa modules, demonstrating reliable data exchange using MicroPython.
+
+
+\subsection{\ifenglish  Dynamic Key Generation Mechanism\else ขอบเขตด้านซอฟต์แวร์\fi}
+
+Successful implementation of RSSI-based session key generation, ensuring that encryption keys are dynamic, unpredictable, and resistant to reuse by attackers.
+
 
 \section{\ifenglish Technology and tools\else เทคโนโลยีและเครื่องมือที่ใช้\fi}
 
 \subsection{\ifenglish Hardware technology\else เทคโนโลยีด้านฮาร์ดแวร์\fi}
+The hardware used in this project consists of the following components:
+
+\begin{itemize}
+    \item \textbf{ESP32 Development Board} 
+    \begin{itemize}
+            \item Serves as the main microcontroller for implementing the secure communication framework. \item Provides sufficient processing power, memory, and Wi-Fi/Bluetooth capabilities while maintaining low energy consumption.
+            \item Runs MicroPython firmware for ease of prototyping and testing.
+
+        \end{itemize} 
+    \item \textbf{LoRa Transceiver Module} 
+        \begin{itemize} 
+            \item Enables long-range, low-power wireless communication between IoT devices.
+            \item Used to transmit and receive data packets.
+        \end{itemize} 
+
+    \item \textbf{Jumper Wires and Breadboard} 
+        \begin{itemize} 
+            \item  Used to connect ESP32 boards to LoRa modules for prototyping purposes.
+            \item    Provides flexibility for testing different circuit configurations in a laboratory environment.
+        \end{itemize} 
+ 
+
+    \item \textbf{Power Supply (USB)} 
+      \begin{itemize} 
+            \item Each ESP32 board is powered via USB from a computer or adapter.
+            \item Provides stable voltage and allows simultaneous programming and monitoring.
+        \end{itemize} 
+\end{itemize}
+
 
 \subsection{\ifenglish Software technology\else เทคโนโลยีด้านซอฟต์แวร์\fi}
+
+\begin{itemize}
+    \item \textbf{MicroPython} 
+    \begin{itemize}
+            \item Lightweight Python implementation designed for microcontrollers such as ESP32.
+             \item Provides built-in support for hardware interfaces (GPIO, SPI, UART) and efficient execution on resource-constrained devices.
+            \item Used to implement the encryption, decryption, and RSSI-based key generation mechanisms.
+
+        \end{itemize} 
+    \item \textbf{Visual Studio Code (VS Code)} 
+        \begin{itemize} 
+            \item Serves as the primary code editor and development environment.
+            \item Offers extensions for MicroPython, debugging, and serial communication with ESP32 devices.
+        \end{itemize} 
+
+    \item \textbf{Thonny IDE} 
+        \begin{itemize} 
+            \item Beginner-friendly IDE optimized for MicroPython programming.
+            \item  Used for quick prototyping, uploading scripts, and monitoring device outputs.
+        \end{itemize} 
+ 
+
+    \item \textbf{mpremote (MicroPython Remote Tool)} 
+      \begin{itemize} 
+            \item Command-line utility for interacting with MicroPython devices over USB.
+            \item Supports file transfer, script execution, and device management.
+        \end{itemize} 
+         \item \textbf{Serial Monitor Tools} 
+      \begin{itemize} 
+            \item Used to display and debug communication between ESP32 devices in real time.
+            \item Allows monitoring of RSSI values, encryption/decryption outputs, and keyword verification results.
+        \end{itemize}
+\end{itemize}
 
 \section{\ifenglish Project plan\else แผนการดำเนินงาน\fi}
 
@@ -34,12 +103,17 @@ This project presents a lightweight secure communication framework for IoT syste
 % \end{plan}
 
 \section{\ifenglish Roles and responsibilities\else บทบาทและความรับผิดชอบ\fi}
-% อธิบายว่าในการทำงาน นศ. มีการกำหนดบทบาทและแบ่งหน้าที่งานอย่างไรในการทำงาน จำเป็นต้องใช้ความรู้ใดในการทำงานบ้าง
+This project is made possible by 3 students and 1 advisor
+ \begin{itemize} 
+            \item Ritthanupahp Sitthananun: Responsible for coding and demo
+            \item Piyuwut Buncharoen: Responsible for implementing hardware
+            \item Siripa Aungwattana: Responsible for implementing hardware
+            \item Kampol Woradit: Advisor providing suggestions and support.
+        \end{itemize}
 
 \section{\ifenglish%
 Impacts of this project on society, health, safety, legal, and cultural issues
 \else%
 ผลกระทบด้านสังคม สุขภาพ ความปลอดภัย กฎหมาย และวัฒนธรรม
 \fi}
-
-% แนวทางและโยชน์ในการประยุกต์ใช้งานโครงงานกับงานในด้านอื่นๆ รวมถึงผลกระทบในด้านสังคมและสิ่งแวดล้อมจากการใช้ความรู้ทางวิศวกรรมที่ได้
+This project focuses on developing secure and reliable IoT communication. Users can transmit and receive data with a reduced risk of leakage or attacks. The system is low-power, minimizing health impacts, and contains no illegal or inappropriate content or functions. Therefore, it does not cause significant adverse effects on society or culture.
