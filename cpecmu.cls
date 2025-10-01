@@ -236,35 +236,35 @@
   \PassOptionsToPackage{english}{thaixelatex}
 \fi
 \RequirePackage{thaixelatex}
-\newcommand{\@maketitleTH}{%
-  \begin{titlepage}%
-    % \begin{center}%
+\newcommand{\@maketitleTH}{
+  \begin{titlepage}
+    % \begin{center}
     %   \hrule height 0.5in width 0pt % force vertical space at top
     %   \@titlesize\bf
-    %   % โครงงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
+    %   โครงงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
     %   \par\vspace*{0.5in}\par
-    %   % เรื่อง
+    %   เรื่อง
     %   \par\vspace*{0.5in}\par
     %   \@titleTH
     %   \par\vspace*{0.75in}\par
-    %   % โดย
+    %   โดย
     %   \par\vspace*{0.75in}\par
     %   {\@authorsize%
     %   \begin{tabular}{@{}cl@{}}
-    %   % \@authorsTH{& รหัส~}{\\}%
+    %   \@authorsTH{& รหัส~}{\\}%
     %   \end{tabular}%
     %   }%
     %   \vfill
-    %   % \ifproject%
-    %   %   โครงงานนี้ \\
-    %   %   เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
-    %   % \else%
-    %   %   รายงานนี้เป็นส่วนหนึ่งของวิชาสำรวจเพื่อโครงงาน \\
-    %   %   ตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
-    %   % \fi
-    %   % ภาควิชาวิศวกรรมคอมพิวเตอร์ \\
-    %   % คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่ \\
-    %   % ปีการศึกษา~\@acadyearBE
+    %   \ifproject
+    %     โครงงานนี้ \\
+    %     เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
+    %   \else
+    %     รายงานนี้เป็นส่วนหนึ่งของวิชาสำรวจเพื่อโครงงาน \\
+    %     ตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
+    %   \fi
+    %   ภาควิชาวิศวกรรมคอมพิวเตอร์ \\
+    %   คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่ \\
+    %   ปีการศึกษา~\@acadyearBE
     % \end{center}
     % \vspace{0.25in}
   \end{titlepage}
