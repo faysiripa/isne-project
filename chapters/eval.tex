@@ -32,3 +32,34 @@ Simulate potential attack scenarios such as replaying old packets or attempting 
 
  \section{Evaluation Method}
  The evaluation is expected to show that the RSSI-based key generation approach achieves high correctness in key agreement, maintains lightweight resource usage suitable for ESP32 devices, and provides improved resilience against interception compared to static key methods.
+
+\section{Comparative Discussion with Related Works}
+
+To assess the contribution of the proposed RSSI-based lightweight secure communication framework, it is useful to compare it with recent research in LoRa security.
+
+\subsubsection{Chaos and Timing Approaches}
+Erkan et al. (2023) proposed a chaos-based encryption with a timing confirmation algorithm on LoRa. They use a Logistic map as a pseudo-random generator and millisecond-level timing signals for message validation. Their evaluation, including NIST randomness and entropy tests, shows that chaotic keys provide high unpredictability. This study, however, focuses on theoretical analysis of randomness and timing rather than memory or CPU usage constraints~\cite{erkan2023}.
+
+\subsubsection{Lightweight Block Cipher on ESP32}
+Lim et al. (2024) designed a lightweight block cipher for ESP32 based on AES/DES principles. The algorithm uses custom S-boxes and P-boxes for encryption and is validated through SAC, monobit, and correlation tests. It demonstrates feasibility on ESP32 with approximately 3 ms execution time per encryption and randomness performance close to optimal. However, it depends on static pre-shared keys, increasing complexity in key management~\cite{lim2024}.
+
+\subsubsection{Frequency-Hopping Network Architectures}
+Ortigoso et al. (2024) introduced Dynamic Dual Frequency Hopping (DDFH), a network-level architecture using dual radios and mesh topology to improve scalability and mitigate eavesdropping. Their solution achieved a $\sim 94.66\%$ packet success rate in prototypes. While effective, DDFH targets large-scale LoRaWAN deployments with Raspberry Pi and dual-antenna hardware. In contrast, our approach is device-centric, requiring only low-cost ESP32 and LoRa modules~\cite{ortigoso2024}.
+
+\subsubsection{Physical-Layer RSSI + CRT Encryption}
+Zhang et al. (2021) proposed a physical-layer scheme combining RSSI-based key extraction with the Chinese Remainder Theorem (CRT) to generate cyclic shift encryption factors. Their algorithm preserves BER performance while degrading eavesdropper decoding to near 0.5 BER. Our work shares the principle of RSSI-based key selection but focuses more on iterative keyword verification for synchronization instead of CRT~\cite{zhang2021}.
+
+\subsubsection{Advantages of the Proposed Work}
+\begin{itemize}
+    \item Does not require static key storage, unlike AES/DES-based methods.
+    \item Avoids additional timing functions present in chaos-based approaches.
+    \item Lightweight enough for ESP32 with MicroPython, unlike DDFH requiring dual radios/SBCs.
+    \item Implements practical verification (keyword matching) suitable for low-resource devices.
+\end{itemize}
+
+\subsubsection{Limitations}
+\begin{itemize}
+    \item RSSI values are environment-dependent, which requires careful testing under varying conditions compared to chaos-based schemes.
+    \item Keyword verification may be less complex than CRT-based physical-layer methods.
+    \item Does not address large-scale network-level threats such as jamming, unlike frequency-hopping solutions.
+\end{itemize}

@@ -1,8 +1,8 @@
 \chapter{\ifenglish Introduction\else บทนำ\fi}
 
-\section{\ifenglish Project rationale\else ที่มาของโครงงาน\fi}
+\section{\ifenglish Project Rationale\else ที่มาของโครงงาน\fi}
 
-LoRa (Long Range) is a low-power wireless communication technology widely used in Internet of Things (IoT) applications such as environmental monitoring, infrastructure systems, and smart home appliances. Despite its advantages, LoRa lacks strong built-in security mechanisms. This leaves signals exposed to attacks such as eavesdropping, reply attacks , and message injections [1], [2]. Traditional encryption methods can mitigate these risks but are often too resource-intensive for low-power devices like the ESP32.
+LoRa (Long Range) is a low-power wireless communication technology widely used in Internet of Things (IoT) applications such as environmental monitoring, infrastructure systems, and smart home appliances. Despite its advantages, LoRa lacks strong built-in security mechanisms. This leaves signals exposed to attacks such as eavesdropping, replay attacks, and message injections [1], [2]. Traditional encryption methods can mitigate these risks but are often too resource-intensive for low-power devices like the ESP32.
 
 \section{\ifenglish Objectives\else วัตถุประสงค์ของโครงงาน\fi}
 
@@ -10,10 +10,10 @@ To address this challenge, this project avoids static, pre-stored keys and inste
 
 This project presents a lightweight secure communication framework for IoT systems using LoRa and MicroPython, focusing on encryption and dynamic key management. Session keys are updated using RSSI values. Both devices share a predefined keyword and an RSSI interval for adjustment. The communication process begins with the sender transmitting a verification message while the receiver measures the RSSI and iteratively adjusts its interpretation within the agreed interval until the message is correctly decrypted and the keyword matches. This ensures that both devices converge on the same session key despite natural fluctuations in signal strength. Furthermore, by using RSSI values with two-decimal precision and combining measurements across multiple LoRa channels, the system significantly increases resistance to interception and eavesdropping. Overall, the framework provides a practical balance between security and performance for securing IoT communication [3],[4].
 
-\section{\ifenglish Project scope\else ขอบเขตของโครงงาน\fi}
+\section{\ifenglish Project Scope\else ขอบเขตของโครงงาน\fi}
 The scope of this project focuses on designing and developing a secure communication framework based on LoRa technology using MicroPython for low-power IoT devices such as the ESP32. The project emphasizes generating dynamic encryption keys from signal strength values (RSSI) to enhance communication security, as well as conducting communication experiments between at least two devices.
 
-\section{\ifenglish Expected outcomes\else ประโยชน์ที่ได้รับ\fi}
+\section{\ifenglish Expected Outcomes\else ประโยชน์ที่ได้รับ\fi}
 
 \subsection{\ifenglish Secure IoT Communication Prototype\else ขอบเขตด้านฮาร์ดแวร์\fi}
 
@@ -25,9 +25,9 @@ A working prototype of a lightweight secure communication framework implemented 
 Successful implementation of RSSI-based session key generation, ensuring that encryption keys are dynamic, unpredictable, and resistant to reuse by attackers.
 
 
-\section{\ifenglish Technology and tools\else เทคโนโลยีและเครื่องมือที่ใช้\fi}
+\section{\ifenglish Technology and Tools\else เทคโนโลยีและเครื่องมือที่ใช้\fi}
 
-\subsection{\ifenglish Hardware technology\else เทคโนโลยีด้านฮาร์ดแวร์\fi}
+\subsection{\ifenglish Hardware Technology\else เทคโนโลยีด้านฮาร์ดแวร์\fi}
 The hardware used in this project consists of the following components:
 
 \begin{itemize}
@@ -58,7 +58,7 @@ The hardware used in this project consists of the following components:
 \end{itemize}
 
 
-\subsection{\ifenglish Software technology\else เทคโนโลยีด้านซอฟต์แวร์\fi}
+\subsection{\ifenglish Software Technology\else เทคโนโลยีด้านซอฟต์แวร์\fi}
 
 \begin{itemize}
     \item \textbf{MicroPython} 
@@ -81,7 +81,7 @@ The hardware used in this project consists of the following components:
         \end{itemize} 
  
 
-    \item \textbf{mpremote (MicroPython Remote Tool)} 
+    \item \textbf{Mpremote (MicroPython Remote Tool)} 
       \begin{itemize} 
             \item Command-line utility for interacting with MicroPython devices over USB.
             \item Supports file transfer, script execution, and device management.
@@ -93,7 +93,7 @@ The hardware used in this project consists of the following components:
         \end{itemize}
 \end{itemize}
 
-\section{\ifenglish Project plan\else แผนการดำเนินงาน\fi}
+\section{\ifenglish Project Plan\else แผนการดำเนินงาน\fi}
 
 \begin{plan}{6}{2025}{10}{2025}
     \planitem{6}{2025}{7}{2025}{Project Discussion}
@@ -112,7 +112,7 @@ The hardware used in this project consists of the following components:
 %     \planitem{12}{2019}{1}{2022}{ทดสอบ}
 % \end{plan}
 
-\section{\ifenglish Roles and responsibilities\else บทบาทและความรับผิดชอบ\fi}
+\section{\ifenglish Roles and Responsibilities\else บทบาทและความรับผิดชอบ\fi}
 This project is made possible by 3 students and 1 advisor.
  \begin{itemize} 
             \item Ritthanupahp Sitthananun: Responsible for coding and demo.
@@ -122,7 +122,7 @@ This project is made possible by 3 students and 1 advisor.
         \end{itemize}
 
 \section{\ifenglish%
-Impacts of this project on society, health, safety, legal, and cultural issues
+Impacts of This Project on Society, Health, Safety, Legal, and Cultural Issues
 \else%
 ผลกระทบด้านสังคม สุขภาพ ความปลอดภัย กฎหมาย และวัฒนธรรม
 \fi}
