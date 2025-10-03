@@ -148,7 +148,7 @@ The following Python script (\texttt{sender.py}) demonstrates sending and receiv
 \subsection{LoRa Communication Script}
 
 The following Python script (\texttt{sender.py}) demonstrates sending and receiving LoRa packets using the SX1276 module on an ESP32. It includes unicast requests, broadcast messages, and handling of packet reception.
-
+{\scriptsize
 \begin{verbatim}
 from machine import Pin
 import time, urandom as random
@@ -220,11 +220,11 @@ print('[Sending]', payload)
 lora.send(dst_id=0, msg=payload, pkt_type=lora.PKT_TYPE['BRD'])
 
 time.sleep(10)
-payload = str(random.randint(100,65536)) + ") This long BRD packet will also be received even though a wrong dst_id is specified"
+payload = str(random.randint(100,65536)) + ") This long BRD packet will also be received 
 print('[Sending]', payload)
 lora.send(dst_id=3, msg=payload, pkt_type=lora.PKT_TYPE['BRD'])
 \end{verbatim}
-
+}
 This script demonstrates:
 \begin{itemize}
     \item Sending a unicast request packet (\texttt{REQ}) to a specific node.
@@ -236,7 +236,7 @@ This script demonstrates:
 \subsection{Receiver Node Script}
 
 The following Python script (\texttt{receiver.py}) demonstrates the ESP32 receiving LoRa packets, replying to unicast requests, and handling broadcast packets.
-
+{\scriptsize
 \begin{verbatim}
 from machine import Pin
 import time, urandom as random
@@ -301,8 +301,8 @@ while not lora.is_available:
 print("[Note] This line will not be reached because BRD is not two-way communication. "
       "The receiver will not stop listening.")
 \end{verbatim}
+}
 
-\noindent This script demonstrates:
 \begin{itemize}
     \item Continuous reception of REQ packets.
     \item Replying to a unicast request (two-way communication).
