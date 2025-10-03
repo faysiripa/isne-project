@@ -38,6 +38,14 @@ To synchronize RSSI values, one device (the initiator) first transmits a known v
 \subsection{Keyword Verification}
 To ensure correctness, both devices share a pre-defined keyword. After decryption, the receiver compares the result against this keyword. A match confirms that both devices are synchronized on the same session key. If the keyword is not matched, the process repeats until a valid session key is established.
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{flow.png}
+\end{center}
+\caption[Picture]{Implementation Flow}
+\label{fig:flow}
+\end{figure}
+
 \subsection{System Implementation}
 
 \subsubsection{Hardware Setup}
@@ -49,6 +57,14 @@ The following components are required for the system implementation:
     \item Jumper wires
     \item Computer with \texttt{esptool.py} and \texttt{mpremote} installed
 \end{itemize}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{system.png}
+\end{center}
+\caption[Picture]{Module System}
+\label{fig:system}
+\end{figure}
 
 \subsubsection{Pin Mapping}
 The interfacing between the ESP32 and the SX1276 module is established through the SPI bus and control lines.  
